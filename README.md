@@ -19,41 +19,7 @@ Commercial buildings consume massive amounts of energy. Facility managers often 
 ---
 
 ## 🏗️ 2. Architecture & Tech Stack
-graph TD
-    %% Data Sources
-    subgraph Sources [Data Sources]
-        A[Kaggle: train.csv] --> V[(Unity Catalog Volume)]
-        B[Kaggle: building_metadata.csv] --> V
-        C[Kaggle: weather_train.csv] --> V
-    end
 
-    %% Bronze Layer
-    subgraph Bronze [🥉 Bronze Layer: Raw Data]
-        V --> B1[(bronze_meter_readings)]
-        V --> B2[(bronze_building_metadata)]
-        V --> B3[(bronze_weather)]
-    end
-
-    %% Silver Layer
-    subgraph Silver [🥈 Silver Layer: Cleaned & Joined]
-        B1 --> S1[(silver_energy_data)]
-        B2 --> S1
-        B3 --> S1
-        S1 -.->|OPTIMIZE & ZORDER| S1
-    end
-
-    %% Gold Layer
-    subgraph Gold [🥇 Gold Layer: ML Ready & Features]
-        S1 --> G1[(gold_energy_features)]
-        G1 -.->|Feature Engineering: Hour, Month, log1p| G1
-    end
-
-    %% ML & Inference Layer
-    subgraph AI [🤖 Machine Learning & MLflow]
-        G1 --> ML1((Random Forest Regressor))
-        ML1 -.->|Logged Artifacts & Metrics| MLflow[MLflow Registry]
-        ML1 --> G2[(gold_energy_predictions)]
-    end
 
 ---
 
