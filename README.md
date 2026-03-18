@@ -19,6 +19,7 @@ Commercial buildings consume massive amounts of energy. Facility managers often 
 ---
 
 ## 🏗️ 2. Architecture & Tech Stack
+<img width="6752" height="6060" alt="Kaggle Energy Data Pipeline-2026-03-16-122119" src="https://github.com/user-attachments/assets/8e9da82f-e2c5-4fc7-9043-dcd6eff3e7a3" />
 
 
 ---
